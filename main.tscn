@@ -2,5 +2,24 @@
 
 [ext_resource type="Script" uid="uid://73avcwnhpuhm" path="res://input_manager.gd" id="1_ig7tw"]
 
-[node name="Node2D" type="Node2D" unique_id=138117711]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(1165, 117)
+
+[node name="Main" type="Node2D" unique_id=138117711]
 script = ExtResource("1_ig7tw")
+
+[node name="Timer" type="Timer" parent="." unique_id=5127050]
+autostart = true
+
+[node name="Blocks" type="Node2D" parent="." unique_id=1959254111]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1719809690]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1056775828]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2020627972]
+position = Vector2(575, 596.5)
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
