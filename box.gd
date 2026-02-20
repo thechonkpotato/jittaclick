@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed: float = 100.0
+@export var speed: float = 500.0
 
 var x_range := 0.0
 var y_range := 0.0
@@ -15,9 +15,11 @@ func _ready():
 	if randf() < 0.5: 
 		global_position.x = padding
 		set_meta('side', 'left')
+		modulate = Color.RED
 	else: 
 		global_position.x = x_range - padding
 		set_meta('side', 'right')
+		modulate = Color.BLUE
 	
 	global_position.y = -y_size
 

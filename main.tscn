@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cqso6pdcr62wj"]
 
 [ext_resource type="Script" uid="uid://73avcwnhpuhm" path="res://input_manager.gd" id="1_ig7tw"]
+[ext_resource type="AudioStream" uid="uid://uqhf5lxu5psd" path="res://assets/sounds/632686.mp3" id="2_0xm2m"]
+[ext_resource type="AudioStream" uid="uid://bfau6rjt18aa2" path="res://assets/sounds/freesound_community-metronome-85688.mp3" id="3_h2yge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
 size = Vector2(1165, 117)
@@ -9,6 +11,7 @@ size = Vector2(1165, 117)
 script = ExtResource("1_ig7tw")
 
 [node name="Timer" type="Timer" parent="." unique_id=5127050]
+wait_time = 0.25
 autostart = true
 
 [node name="Blocks" type="Node2D" parent="." unique_id=1959254111]
@@ -21,5 +24,17 @@ autostart = true
 position = Vector2(575, 596.5)
 shape = SubResource("RectangleShape2D_ig7tw")
 
+[node name="Sound" type="Node2D" parent="." unique_id=1215292528]
+
+[node name="LaMusica" type="AudioStreamPlayer2D" parent="Sound" unique_id=92006644]
+stream = ExtResource("2_0xm2m")
+volume_db = -16.223
+autoplay = true
+
+[node name="GoodHit" type="AudioStreamPlayer2D" parent="Sound" unique_id=879688335]
+stream = ExtResource("3_h2yge")
+volume_db = 9.062
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
