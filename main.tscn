@@ -4,9 +4,6 @@
 [ext_resource type="AudioStream" uid="uid://uqhf5lxu5psd" path="res://assets/sounds/632686.mp3" id="2_0xm2m"]
 [ext_resource type="AudioStream" uid="uid://bfau6rjt18aa2" path="res://assets/sounds/freesound_community-metronome-85688.mp3" id="3_h2yge"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
-size = Vector2(1165, 117)
-
 [node name="Main" type="Node2D" unique_id=138117711]
 script = ExtResource("1_ig7tw")
 
@@ -17,12 +14,6 @@ autostart = true
 [node name="Blocks" type="Node2D" parent="." unique_id=1959254111]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1719809690]
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1056775828]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2020627972]
-position = Vector2(575, 596.5)
-shape = SubResource("RectangleShape2D_ig7tw")
 
 [node name="Sound" type="Node2D" parent="." unique_id=1215292528]
 
@@ -35,6 +26,7 @@ autoplay = true
 stream = ExtResource("3_h2yge")
 volume_db = 9.062
 
+[node name="Line2D" type="Line2D" parent="." unique_id=117380974]
+points = PackedVector2Array(0, 540, 1152, 540)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

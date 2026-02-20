@@ -4,13 +4,15 @@ extends Area2D
 
 var x_range := 0.0
 var y_range := 0.0
-var y_size := 0.0
+var width := 0.0
+var height := 0.0
 @export var padding := 80.0
 
 func _ready(): 
 	x_range = get_viewport_rect().size.x
 	y_range = get_viewport_rect().size.y
-	y_size = $CollisionShape2D.shape.size.y * global_scale.y
+	width = $CollisionShape2D.shape.size.y * global_scale.y
+	height = $CollisionShape2D.shape.size.y * global_scale.y
 	
 	if randf() < 0.5: 
 		global_position.x = padding
@@ -21,8 +23,11 @@ func _ready():
 		set_meta('side', 'right')
 		modulate = Color.BLUE
 	
-	global_position.y = -y_size
+	global_position.y = -height
 
 func _physics_process(delta: float) -> void:
 	global_position.y += speed * delta
-	if global_position.y > y_range + y_size: queue_free()
+	if global_position.y > y_range + height: get_node('../..').remove_block(self)
+
+func centered_gpos():
+	return global_position + Vector2(width / 2, height / 2)
