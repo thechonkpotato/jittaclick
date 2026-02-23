@@ -14,13 +14,11 @@ func _ready():
 	width = $CollisionShape2D.shape.size.y * global_scale.y
 	height = $CollisionShape2D.shape.size.y * global_scale.y
 	
-	if randf() < 0.5: 
+	if get_meta('side') == 'left': 
 		global_position.x = padding
-		set_meta('side', 'left')
 		modulate = Color.RED
 	else: 
 		global_position.x = x_range - padding
-		set_meta('side', 'right')
 		modulate = Color.BLUE
 	
 	global_position.y = -height

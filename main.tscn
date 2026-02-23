@@ -19,7 +19,7 @@ autostart = true
 
 [node name="LaMusica" type="AudioStreamPlayer2D" parent="Sound" unique_id=92006644]
 stream = ExtResource("2_0xm2m")
-volume_db = -16.223
+volume_db = -3.862
 autoplay = true
 
 [node name="GoodHit" type="AudioStreamPlayer2D" parent="Sound" unique_id=879688335]
