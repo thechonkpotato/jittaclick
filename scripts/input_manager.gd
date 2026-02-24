@@ -5,7 +5,7 @@ extends Node2D
 
 var bpm: float = 100
 
-const block_scene: PackedScene = preload('res://box.tscn')
+const block_scene: PackedScene = preload('res://scenes/box.tscn')
 var blocks: Array[Dictionary] = [] # <-- HERE'S THE LIST NO FREAKING WAY
 
 var left_points := 0
