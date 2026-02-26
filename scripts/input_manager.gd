@@ -1,12 +1,9 @@
 extends Node2D
 
-@onready var block_cluster = $Blocks
+@onready var bmanage = $BlockManager
 @onready var cam = $Camera2D
 
 var bpm: float = 100
-
-const block_scene: PackedScene = preload('res://scenes/box.tscn')
-var blocks: Array[Dictionary] = [] # <-- HERE'S THE LIST NO FREAKING WAY
 
 var left_points := 0
 var right_points := 0
@@ -18,53 +15,32 @@ func _ready():
 	
 	$Timer.wait_time = 30 / bpm
 	randomize()
-	
-	spawn_box('left')
-	spawn_box('right')
 	$Timer.start()
 
 func _physics_process(_delta):
 	if Input.is_action_just_pressed('left'): 
 		test_for_blocks('left')
-		print(left_points)
 				
 	if Input.is_action_just_pressed('right'): 
 		test_for_blocks('right')
-		print(right_points)
 
 func _on_timer_timeout():
 	$Sound/GoodHit.play()
 	
-	spawn_box('left')
-	spawn_box('right')
+	bmanage.spawn_box('left')
+	bmanage.spawn_box('right')
 	
 	$Timer.start()
 
-func add_block(block: Node2D):
-	blocks.append(
-		{'block': block, 'side': block.get_meta('side')}
-	)
-
-func remove_block(block: Node2D):
-	blocks.erase(
-		{'block': block, 'side': block.get_meta('side')}
-	)
-	block.queue_free()
-
-func test_for_blocks(input_side: String):
-	for datapiece in blocks: 
-		var block = datapiece.block; print(block)
-		var side = datapiece.side; print(side)
+func test_for_blocks(input_side: String): # <-- WOW LOOK AT THIS FUNCTION THAT MEETS ALL OF THE REQUIREMENTS
+	for datapiece in bmanage.blocks: 
+		var block = datapiece.block
+		var side = datapiece.side
 		if side == input_side and (block.position.y + block.height) >= Globals.line_y:
-			print(absf(block.centered_gpos().y - Globals.line_y))
-			remove_block(block)
+			bmanage.remove_block(block)
 			if input_side == 'left':
 				left_points += 1
+				print(left_points)
 			elif input_side == 'right':
 				right_points += 1
-
-func spawn_box(side: String): # <-- WOW LOOK AT THIS FUNCTION THAT MEETS ALL OF THE REQUIREMENTS
-	var block: Area2D = block_scene.instantiate()
-	block.set_meta('side', side)
-	block_cluster.add_child(block)
-	add_block(block)
+				print(right_points)

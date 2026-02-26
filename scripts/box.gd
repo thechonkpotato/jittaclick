@@ -8,11 +8,9 @@ var width := 0.0
 var height := 0.0
 @export var padding := 80.0
 
-var y_offset: float = Globals.line_y - (speed * Globals.bpm_wait * 2)
+var y_offset: float = Globals.line_y - (speed * Globals.bpm_wait * 2) + 10
 
 func _ready(): 
-	print(y_offset)
-	print(Globals.line_y)
 	x_range = get_viewport_rect().size.x
 	y_range = get_viewport_rect().size.y
 	width = $CollisionShape2D.shape.size.y * global_scale.y
@@ -29,7 +27,7 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	global_position.y += speed * delta
-	if global_position.y > y_range + height: get_node('../..').remove_block(self) # get the blocks node2d in the main scene
+	if global_position.y > y_range + height: get_parent().remove_block(self) # get the blocks node2d in the main scene
 
 func centered_gpos():
 	return global_position + Vector2(width / 2, height / 2)
