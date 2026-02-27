@@ -26,10 +26,6 @@ func _physics_process(_delta):
 
 func _on_timer_timeout():
 	$Sound/GoodHit.play()
-	
-	bmanage.spawn_box('left')
-	bmanage.spawn_box('right')
-	
 	$Timer.start()
 
 func test_for_blocks(input_side: String): # <-- WOW LOOK AT THIS FUNCTION THAT MEETS ALL OF THE REQUIREMENTS
@@ -40,7 +36,5 @@ func test_for_blocks(input_side: String): # <-- WOW LOOK AT THIS FUNCTION THAT M
 			bmanage.remove_block(block)
 			if input_side == 'left':
 				left_points += 1
-				print(left_points)
 			elif input_side == 'right':
 				right_points += 1
-				print(right_points)

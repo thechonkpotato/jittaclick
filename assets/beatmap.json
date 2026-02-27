@@ -5,7 +5,8 @@
 			{"beat": 1, "side": "left"},
 			{"beat": 2, "side": "left"},
 			{"beat": 3, "side": "right"},
-			{"beat": 4, "side": "right"}
+			{"beat": 4, "side": "right"},
+			{"beat": 4.5, "side": "right"}
 		]
 	}
 }

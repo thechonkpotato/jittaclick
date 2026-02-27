@@ -4,7 +4,3 @@
 
 [node name="BeatmapReader" type="Node" unique_id=1851239135]
 script = ExtResource("1_h1n8w")
-
-[node name="Timer" type="Timer" parent="." unique_id=489195214]
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
