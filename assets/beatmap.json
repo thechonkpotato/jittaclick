@@ -1,13 +1,8 @@
 {
 	"trigger": {
 		"bpm": 100,
-		"beats": [
-			{"beat": 1, "side": "left"},
-			{"beat": 2, "side": "left"},
-			{"beat": 3, "side": "right"},
-			{"beat": 4, "side": "right"},
-			{"beat": 4.5, "side": "right"},
-			{"beat": 4.5, "side": "left"}
-		]
+		"beats":
+[{ "beat": 1.75, "side": "right" }, { "beat": 2.0, "side": "left" }, { "beat": 2.25, "side": "left" }, { "beat": 2.25, "side": "left" }, { "beat": 2.5, "side": "right" }, { "beat": 2.5, "side": "left" }, { "beat": 2.75, "side": "right" }, { "beat": 2.75, "side": "right" }, { "beat": 3.25, "side": "right" }, { "beat": 3.5, "side": "left" }, { "beat": 3.5, "side": "left" }, { "beat": 3.75, "side": "right" }, { "beat": 4.0, "side": "left" }, { "beat": 4.0, "side": "left" }, { "beat": 4.25, "side": "right" }, { "beat": 4.25, "side": "right" }, { "beat": 4.5, "side": "left" }, { "beat": 4.75, "side": "right" }, { "beat": 4.75, "side": "left" }, { "beat": 5.0, "side": "left" }, { "beat": 5.25, "side": "right" }, { "beat": 5.25, "side": "left" }, { "beat": 5.5, "side": "right" }, { "beat": 5.5, "side": "right" }, { "beat": 6.0, "side": "left" }, { "beat": 6.0, "side": "left" }, { "beat": 6.25, "side": "right" }, { "beat": 6.5, "side": "left" }, { "beat": 6.5, "side": "right" }, { "beat": 6.75, "side": "left" }, { "beat": 6.75, "side": "right" }, { "beat": 7.0, "side": "right" }, { "beat": 7.0, "side": "left" }]
+
 	}
 }
