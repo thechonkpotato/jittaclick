@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dvg557uguy1np"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xw2wl"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 98, 0)
+
+[node name="BoxExplode" type="GPUParticles2D" unique_id=1418530711]
+position = Vector2(232, 134)
+amount = 80
+fixed_fps = 1000
+process_material = SubResource("ParticleProcessMaterial_xw2wl")

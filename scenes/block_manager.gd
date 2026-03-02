@@ -18,4 +18,7 @@ func remove_block(block: Node2D):
 	blocks.erase(
 		{'block': block, 'side': block.get_meta('side')}
 	)
+	print(block.global_position)
+	var particles = GPUParticles2D.new()
+	
 	block.queue_free()
