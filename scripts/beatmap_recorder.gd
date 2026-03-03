@@ -7,18 +7,23 @@ func _process(delta: float) -> void:
 	time += delta
 
 	if Input.is_action_just_pressed('left'):
+		print('left')
 		inputs.append({
-			'beat': time * Globals.bpm_wait,
+			'time': time,
+			'beat': time / Globals.bpm_wait,
 			'side': 'left'
 		})
 
 	if Input.is_action_just_pressed('right'):
+		print('right')
 		inputs.append({
-			'beat': time * Globals.bpm_wait,
+			'time': time,
+			'beat': time / Globals.bpm_wait,
 			'side': 'right'
 		})
 
 	if Input.is_action_just_pressed('ui_accept'):
+		tune_inputs()
 		print(inputs)
 
 func _notification(what: int) -> void:
@@ -31,4 +36,4 @@ func snap_number(input: float, precision: float):
 
 func tune_inputs():
 	for input in inputs:
-		input.beat = snap_number(input.beat, 0.25)
+		input.beat = snap_number(input.beat, 0.5)

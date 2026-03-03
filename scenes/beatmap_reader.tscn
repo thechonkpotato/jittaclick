@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://clykywk8ym0m3"]
 
-[ext_resource type="Script" uid="uid://diev3jmryx8qf" path="res://scenes/beatmap_reader.gd" id="1_h1n8w"]
+[ext_resource type="Script" uid="uid://diev3jmryx8qf" path="res://scripts/beatmap_reader.gd" id="1_h1n8w"]
 
 [node name="BeatmapReader" type="Node" unique_id=1851239135]
 script = ExtResource("1_h1n8w")

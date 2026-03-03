@@ -27,3 +27,4 @@ func _physics_process(delta: float) -> void:
 		note_idx += 1
 		if note_idx < beats.size():
 			next_note_timestamp = beats[note_idx].beat * Globals.bpm_wait
+			print(next_note_timestamp)

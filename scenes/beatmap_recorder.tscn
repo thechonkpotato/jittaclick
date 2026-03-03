@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://xn1sq8wnp3md"]
 
-[ext_resource type="Script" uid="uid://brire5mi1a0m0" path="res://beatmap_recorder.gd" id="1_by4vf"]
+[ext_resource type="Script" uid="uid://brire5mi1a0m0" path="res://scripts/beatmap_recorder.gd" id="1_by4vf"]
 [ext_resource type="AudioStream" uid="uid://uqhf5lxu5psd" path="res://assets/sounds/632686.mp3" id="2_wtxe7"]
 
 [node name="BeatmapRecorder" type="Node" unique_id=1704027189]
