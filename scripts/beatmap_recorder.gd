@@ -9,7 +9,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed('left'):
 		print('left')
 		inputs.append({
-			'time': time,
 			'beat': time / Globals.bpm_wait,
 			'side': 'left'
 		})
@@ -17,7 +16,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed('right'):
 		print('right')
 		inputs.append({
-			'time': time,
 			'beat': time / Globals.bpm_wait,
 			'side': 'right'
 		})
@@ -36,4 +34,4 @@ func snap_number(input: float, precision: float):
 
 func tune_inputs():
 	for input in inputs:
-		input.beat = snap_number(input.beat, 0.5)
+		input.beat = snap_number(input.beat, 0.25)

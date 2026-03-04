@@ -12,11 +12,10 @@ var note_idx := 0
 var timestamp := 0.0 
 var song = beatmap['trigger']
 var beats: Array = song.beats
-var next_note_timestamp: float = beats[0].beat * Globals.bpm_wait # 0.6 secs
+var next_note_timestamp: float = beats[note_idx].beat * Globals.bpm_wait - (2 * Globals.bpm_wait)
 
 func _ready():
 	print(beats)
-	print(next_note_timestamp)
 
 func _physics_process(delta: float) -> void:
 	time += delta
@@ -27,4 +26,4 @@ func _physics_process(delta: float) -> void:
 		note_idx += 1
 		if note_idx < beats.size():
 			next_note_timestamp = beats[note_idx].beat * Globals.bpm_wait
-			print(next_note_timestamp)
+			next_note_timestamp -= 2 * Globals.bpm_wait # offset by 2 beats so it's timed properly
