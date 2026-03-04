@@ -5,9 +5,6 @@ extends Node2D
 
 var bpm: float = 100
 
-var left_points := 0
-var right_points := 0
-
 func _ready():
 	Globals.line_y = $Line2D.points[0].y
 	cam.position.x = cam.get_viewport_rect().size.x / 2
@@ -17,16 +14,18 @@ func _ready():
 	randomize()
 	$Timer.start()
 
-func _physics_process(_delta):
+func _process(_delta):
 	if Input.is_action_just_pressed('left'):
 		test_for_blocks('left')
+		pulse_camera()
 
 	if Input.is_action_just_pressed('right'):
 		test_for_blocks('right')
+		pulse_camera()
+	
+	$ScoreLabel.text = 'Score: %s' % Globals.score
 
-func _on_timer_timeout():
-	$Sound/GoodHit.play()
-	$Timer.start()
+func _on_timer_timeout(): $Timer.start()
 
 func test_for_blocks(input_side: String): # <-- WOW LOOK AT THIS FUNCTION THAT MEETS ALL OF THE REQUIREMENTS
 	for datapiece in bmanage.blocks:
@@ -34,7 +33,13 @@ func test_for_blocks(input_side: String): # <-- WOW LOOK AT THIS FUNCTION THAT M
 		var side = datapiece.side
 		if side == input_side and (block.position.y + block.height) >= Globals.line_y:
 			bmanage.remove_block(block)
-			if input_side == 'left':
-				left_points += 1
-			elif input_side == 'right':
-				right_points += 1
+			Globals.score += round(100 / abs(Globals.line_y - block.position.y)) # the closer to the line it is, the higher the value
+			$Sound/GoodHit.play()
+
+func pulse_camera():
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	
+	tween.tween_property($Camera2D, 'zoom', Vector2(1.025, 1.025), 0.1)
+	tween.tween_property($Camera2D, 'zoom', Vector2(1.0, 1.0), 0.2)

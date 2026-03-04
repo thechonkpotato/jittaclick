@@ -33,4 +33,12 @@ points = PackedVector2Array(0, 540, 1152, 540)
 
 [node name="BeatmapReader" parent="." unique_id=1851239135 instance=ExtResource("5_tbgi4")]
 
+[node name="ScoreLabel" type="Label" parent="." unique_id=826070569]
+offset_left = 353.0
+offset_right = 843.5
+offset_bottom = 65.0
+size_flags_horizontal = 4
+text = "Score: -"
+horizontal_alignment = 1
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

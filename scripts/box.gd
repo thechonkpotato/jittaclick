@@ -25,9 +25,11 @@ func _ready():
 	
 	global_position.y = y_offset
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	global_position.y += speed * delta
-	if global_position.y > y_range + height: get_parent().remove_block(self) # get the blocks node2d in the main scene
+	if global_position.y > y_range + height: 
+		print('miss')
+		get_parent().remove_block(self) # get the blocks node2d in the main scene
 
 func centered_gpos():
 	return global_position + Vector2(width / 2, height / 2)
