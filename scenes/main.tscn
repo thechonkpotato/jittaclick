@@ -29,6 +29,8 @@ stream = ExtResource("3_tbgi4")
 volume_db = 9.062
 
 [node name="Line2D" type="Line2D" parent="." unique_id=117380974]
+position = Vector2(-62.81399, -62.858574)
+scale = Vector2(1.1186007, 1.1186011)
 points = PackedVector2Array(0, 540, 1152, 540)
 
 [node name="BeatmapReader" parent="." unique_id=1851239135 instance=ExtResource("5_tbgi4")]

@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 	global_position.y += speed * delta
 	if global_position.y > y_range + height: 
 		print('miss')
+		Globals.score -= 100.0
 		get_parent().remove_block(self) # get the blocks node2d in the main scene
 
 func centered_gpos():

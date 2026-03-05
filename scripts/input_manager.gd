@@ -17,15 +17,15 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed('left'):
 		test_for_blocks('left')
-		pulse_camera()
 
 	if Input.is_action_just_pressed('right'):
 		test_for_blocks('right')
-		pulse_camera()
 	
 	$ScoreLabel.text = 'Score: %s' % Globals.score
 
-func _on_timer_timeout(): $Timer.start()
+func _on_timer_timeout(): 
+	pulse_camera()
+	$Timer.start()
 
 func test_for_blocks(input_side: String): # <-- WOW LOOK AT THIS FUNCTION THAT MEETS ALL OF THE REQUIREMENTS
 	for datapiece in bmanage.blocks:
@@ -41,5 +41,5 @@ func pulse_camera():
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 	
-	tween.tween_property($Camera2D, 'zoom', Vector2(1.025, 1.025), 0.1)
-	tween.tween_property($Camera2D, 'zoom', Vector2(1.0, 1.0), 0.2)
+	$Camera2D.zoom = Vector2(0.99, 0.99)
+	tween.tween_property($Camera2D, 'zoom', Vector2(1.0, 1.0), 0.1)
