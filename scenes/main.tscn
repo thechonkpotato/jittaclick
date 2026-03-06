@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://73avcwnhpuhm" path="res://scripts/input_manager.gd" id="1_sugp2"]
 [ext_resource type="AudioStream" uid="uid://uqhf5lxu5psd" path="res://assets/sounds/632686.mp3" id="2_jyhfs"]
 [ext_resource type="Script" uid="uid://b24snu7kp0hxq" path="res://scripts/block_manager.gd" id="2_tbgi4"]
-[ext_resource type="Material" uid="uid://cu1k78cv6jnsi" path="res://assets/shaders/galaxy.tres" id="2_tefeu"]
+[ext_resource type="Material" uid="uid://cek56ewd32ni6" path="res://assets/shaders/swirl.tres" id="2_tefeu"]
 [ext_resource type="AudioStream" uid="uid://bfau6rjt18aa2" path="res://assets/sounds/freesound_community-metronome-85688.mp3" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://clykywk8ym0m3" path="res://scenes/beatmap_reader.tscn" id="5_tbgi4"]
 
@@ -14,6 +14,16 @@ font_size = 32
 script = ExtResource("1_sugp2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=944862514]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=182150340]
+material = ExtResource("2_tefeu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.36810192, 0.36810198, 0.36810192, 1)
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=826070569]
 anchors_preset = -1
@@ -29,15 +39,6 @@ size_flags_horizontal = 4
 text = "-"
 label_settings = SubResource("LabelSettings_tbgi4")
 horizontal_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=182150340]
-material = ExtResource("2_tefeu")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.36810192, 0.36810198, 0.36810192, 1)
 
 [node name="Timer" type="Timer" parent="." unique_id=5127050]
 wait_time = 0.25
@@ -62,6 +63,8 @@ volume_db = 9.062
 position = Vector2(-62.81399, -62.858574)
 scale = Vector2(1.1186007, 1.1186011)
 points = PackedVector2Array(0, 540, 1152, 540)
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [node name="BeatmapReader" parent="." unique_id=1851239135 instance=ExtResource("5_tbgi4")]
 

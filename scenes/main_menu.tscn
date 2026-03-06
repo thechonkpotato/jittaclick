@@ -1,23 +1,26 @@
 [gd_scene format=3 uid="uid://i5n37cd5tnql"]
 
 [ext_resource type="Script" uid="uid://bra80btrgwlne" path="res://scenes/main_menu.gd" id="1_l6cm7"]
-[ext_resource type="Material" uid="uid://cu1k78cv6jnsi" path="res://assets/shaders/galaxy.tres" id="2_bqqt6"]
+[ext_resource type="Material" uid="uid://cek56ewd32ni6" path="res://assets/shaders/swirl.tres" id="2_bqqt6"]
 [ext_resource type="Shader" uid="uid://dxc31xjd2t3ww" path="res://assets/shaders/liquidglass.gdshader" id="2_ekxnf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bqqt6"]
 shader = ExtResource("2_ekxnf")
-shader_parameter/blur = 0.6810000323475
+shader_parameter/blur = 1.3710000651225
 shader_parameter/warp_intensity = 0.4
 shader_parameter/strength_x = 12.0
 shader_parameter/strength_y = 12.0
 shader_parameter/offset_x = 0.0
 shader_parameter/offset_y = 0.0
-shader_parameter/corner_radius = 0.3
-shader_parameter/edge_smoothness = 1.0
+shader_parameter/corner_radius = 1.0
+shader_parameter/edge_smoothness = 1.1310000299725
 shader_parameter/tint = Color(0.95, 0.97, 1, 0.12)
 shader_parameter/edge_highlight = Color(1, 1, 1, 0.3)
-shader_parameter/edge_width = 1.5
+shader_parameter/edge_width = 2.5950001232625
 shader_parameter/chromatic_strength = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_bqqt6"]
+font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_vue75"]
 font_size = 48
@@ -55,7 +58,18 @@ offset_right = 101.5
 offset_bottom = 46.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="Button" unique_id=1449843435]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.998
+anchor_bottom = 1.0
+offset_right = -0.0940094
+offset_bottom = 2.5
 text = "PLAY"
+label_settings = SubResource("LabelSettings_bqqt6")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label" type="Label" parent="." unique_id=1482590365]
 layout_mode = 1

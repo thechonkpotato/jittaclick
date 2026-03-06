@@ -35,7 +35,7 @@ func test_for_blocks(input_side: String): # <-- WOW LOOK AT THIS FUNCTION THAT M
 		var side = datapiece.side
 		if side == input_side and (block.position.y + block.height) >= Globals.line_y:
 			bmanage.remove_block(block)
-			Globals.score += round(100 / abs(Globals.line_y - block.position.y)) # the closer to the line it is, the higher the value
+			Globals.score += clamp(round(100 / abs(Globals.line_y - block.position.y)), 0, 200) # the closer to the line it is, the higher the value. can't go over 100.
 			$Sound/GoodHit.play()
 
 func pulse_camera():
@@ -43,7 +43,7 @@ func pulse_camera():
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 
-	$Camera2D.zoom = Vector2(0.99, 0.99)
+	$Camera2D.zoom = Vector2(0.98, 0.98)
 	tween.tween_property($Camera2D, 'zoom', Vector2(1.0, 1.0), 0.1)
 
 func pulse_score(colour: Color):
