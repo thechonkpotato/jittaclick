@@ -17,16 +17,16 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed('left'):
 		test_for_blocks('left')
-		pulse_score(Color.RED)
+		highlight_score(Color.RED)
 
 	if Input.is_action_just_pressed('right'):
 		test_for_blocks('right')
-		pulse_score(Color.AQUA)
+		highlight_score(Color.AQUA)
 
 	$CanvasLayer/ScoreLabel.text = str(Globals.score)
 
 func _on_timer_timeout():
-	pulse_camera()
+	pulse_all_the_things()
 	$Timer.start()
 
 func test_for_blocks(input_side: String): # <-- WOW LOOK AT THIS FUNCTION THAT MEETS ALL OF THE REQUIREMENTS
@@ -46,12 +46,32 @@ func pulse_camera():
 	$Camera2D.zoom = Vector2(0.98, 0.98)
 	tween.tween_property($Camera2D, 'zoom', Vector2(1.0, 1.0), 0.1)
 
-func pulse_score(colour: Color):
+func pulse_score():
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 
 	$CanvasLayer/ScoreLabel.scale = Vector2(1.1, 1.1)
-	$CanvasLayer/ScoreLabel.modulate = colour
 	tween.tween_property($CanvasLayer/ScoreLabel, 'scale', Vector2(1.0, 1.0), 0.1)
+
+func highlight_score(colour: Color):
+	pulse_score()
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+
+	$CanvasLayer/ScoreLabel.modulate = colour
 	tween.tween_property($CanvasLayer/ScoreLabel, 'modulate', Color.WHITE, 0.1)
+
+func pulse_line():
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+
+	$Line2D.modulate = Color.WHITE
+	tween.tween_property($Line2D, 'modulate', Color.from_rgba8(255, 255, 255, 0.5), 0.2)
+
+func pulse_all_the_things():
+	pulse_line()
+	pulse_score()
+	pulse_camera()

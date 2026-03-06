@@ -10,6 +10,9 @@
 [sub_resource type="LabelSettings" id="LabelSettings_tbgi4"]
 font_size = 32
 
+[sub_resource type="Environment" id="Environment_tefeu"]
+glow_enabled = true
+
 [node name="Main" type="Node2D" unique_id=138117711]
 script = ExtResource("1_sugp2")
 
@@ -23,7 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.36810192, 0.36810198, 0.36810192, 1)
+color = Color(0.47866184, 0.47866166, 0.47866148, 1)
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer" unique_id=826070569]
 anchors_preset = -1
@@ -59,13 +62,17 @@ autoplay = true
 stream = ExtResource("3_tbgi4")
 volume_db = 9.062
 
+[node name="BeatmapReader" parent="." unique_id=1851239135 instance=ExtResource("5_tbgi4")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1303842044]
+environment = SubResource("Environment_tefeu")
+
 [node name="Line2D" type="Line2D" parent="." unique_id=117380974]
 position = Vector2(-62.81399, -62.858574)
 scale = Vector2(1.1186007, 1.1186011)
 points = PackedVector2Array(0, 540, 1152, 540)
+default_color = Color(1, 1, 1, 0.44705883)
 begin_cap_mode = 2
 end_cap_mode = 2
-
-[node name="BeatmapReader" parent="." unique_id=1851239135 instance=ExtResource("5_tbgi4")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
