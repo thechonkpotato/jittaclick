@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cu1k78cv6jnsi"]
+
+[ext_resource type="Shader" uid="uid://cwyvj1kxer74k" path="res://assets/shaders/galaxy.gdshader" id="1_t8p5f"]
+
+[resource]
+shader = ExtResource("1_t8p5f")
+shader_parameter/iterations = 20
+shader_parameter/formuparam = 1.0
+shader_parameter/volsteps = 20
+shader_parameter/stepsize = 0.275
+shader_parameter/zoom = 0.8
+shader_parameter/tile = 0.5
+shader_parameter/speed = 0.191
+shader_parameter/brightness = 0.022
+shader_parameter/darkmatter = 0.925
+shader_parameter/distfading = 0.62
+shader_parameter/saturation = 0.75
+shader_parameter/iResolution = Vector2(192, 192)
+shader_parameter/iMouse = Vector2(0, 0)

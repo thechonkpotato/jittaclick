@@ -17,13 +17,15 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed('left'):
 		test_for_blocks('left')
+		pulse_score(Color.RED)
 
 	if Input.is_action_just_pressed('right'):
 		test_for_blocks('right')
-	
-	$ScoreLabel.text = 'Score: %s' % Globals.score
+		pulse_score(Color.AQUA)
 
-func _on_timer_timeout(): 
+	$CanvasLayer/ScoreLabel.text = str(Globals.score)
+
+func _on_timer_timeout():
 	pulse_camera()
 	$Timer.start()
 
@@ -40,6 +42,16 @@ func pulse_camera():
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
-	
+
 	$Camera2D.zoom = Vector2(0.99, 0.99)
 	tween.tween_property($Camera2D, 'zoom', Vector2(1.0, 1.0), 0.1)
+
+func pulse_score(colour: Color):
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+
+	$CanvasLayer/ScoreLabel.scale = Vector2(1.1, 1.1)
+	$CanvasLayer/ScoreLabel.modulate = colour
+	tween.tween_property($CanvasLayer/ScoreLabel, 'scale', Vector2(1.0, 1.0), 0.1)
+	tween.tween_property($CanvasLayer/ScoreLabel, 'modulate', Color.WHITE, 0.1)
