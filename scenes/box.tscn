@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cv468uw6awajy" path="res://assets/textures/block.svg" id="2_ks2v0"]
 [ext_resource type="Script" uid="uid://cnhifky85wtrf" path="res://scripts/box.gd" id="2_oq5cr"]
 [ext_resource type="AudioStream" uid="uid://b80ixsdq0yxa8" path="res://assets/sounds/lesiakower-error-mistake-sound-effect-incorrect-answer-437420.mp3" id="3_c2ln5"]
+[ext_resource type="Texture2D" uid="uid://dvdm35v7gy0xj" path="res://assets/textures/arrow.svg" id="4_telwu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oq5cr"]
 size = Vector2(510.26318, 513.6316)
@@ -11,9 +12,14 @@ size = Vector2(510.26318, 513.6316)
 scale = Vector2(0.1484375, 0.1484375)
 script = ExtResource("2_oq5cr")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=733066101]
+[node name="Block" type="Sprite2D" parent="." unique_id=733066101]
 scale = Vector2(3.3684208, 3.3684216)
 texture = ExtResource("2_ks2v0")
+
+[node name="Arrow" type="Sprite2D" parent="." unique_id=1757906115]
+modulate = Color(1, 1, 1, 0.4862745)
+scale = Vector2(6.063158, 6.063158)
+texture = ExtResource("4_telwu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=540486675]
 visible = false

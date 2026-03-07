@@ -25,7 +25,6 @@ func _physics_process(delta: float) -> void:
 	if time >= next_note_timestamp:
 		var side = beats[note_idx].side
 		if side == 'end':
-			print('end')
 			get_tree().change_scene_to_file('res://scenes/main_menu.tscn')
 			return
 

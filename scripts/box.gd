@@ -18,12 +18,13 @@ func _ready():
 
 	if get_meta('side') == 'left':
 		global_position.x = padding
-		$Sprite2D.modulate = Color.PINK
+		$Block.modulate = Color.PINK
 	else:
 		global_position.x = x_range - padding
-		$Sprite2D.modulate = Color.AQUA
+		$Block.modulate = Color.AQUA
+		$Arrow.scale.x *= -1
 
-	$Sprite2D.modulate.a = 0.2
+	$Block.modulate.a = 0.2
 
 	global_position.y = y_offset
 

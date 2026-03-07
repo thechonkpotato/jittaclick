@@ -30,8 +30,6 @@ func remove_block(block: Node2D, score):
 	block.queue_free()
 
 func spawn_score_effect(score, pos: Vector2, colour: Color):
-	print('spawned score!')
-
 	var score_effect = score_effect_scene.instantiate()
 	if score: score_effect.score = score
 	score_effect.colour = colour
@@ -39,8 +37,6 @@ func spawn_score_effect(score, pos: Vector2, colour: Color):
 	add_child(score_effect)
 
 func spawn_hit_effect(pos: Vector2, colour: Color):
-	print('spawned hit!')
-
 	var explode_effect = explode_effect_scene.instantiate()
 	explode_effect.colour = colour
 	explode_effect.global_position = pos
