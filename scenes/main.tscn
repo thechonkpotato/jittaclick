@@ -4,7 +4,6 @@
 [ext_resource type="AudioStream" uid="uid://uqhf5lxu5psd" path="res://assets/sounds/632686.mp3" id="2_jyhfs"]
 [ext_resource type="Script" uid="uid://b24snu7kp0hxq" path="res://scripts/block_manager.gd" id="2_tbgi4"]
 [ext_resource type="Material" uid="uid://cek56ewd32ni6" path="res://assets/shaders/swirl.tres" id="2_tefeu"]
-[ext_resource type="AudioStream" uid="uid://bfau6rjt18aa2" path="res://assets/sounds/freesound_community-metronome-85688.mp3" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://clykywk8ym0m3" path="res://scenes/beatmap_reader.tscn" id="5_tbgi4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tbgi4"]
@@ -57,10 +56,6 @@ script = ExtResource("2_tbgi4")
 stream = ExtResource("2_jyhfs")
 volume_db = -3.862
 autoplay = true
-
-[node name="GoodHit" type="AudioStreamPlayer2D" parent="Sound" unique_id=879688335]
-stream = ExtResource("3_tbgi4")
-volume_db = 9.062
 
 [node name="BeatmapReader" parent="." unique_id=1851239135 instance=ExtResource("5_tbgi4")]
 

@@ -15,7 +15,6 @@ func _ready():
 	y_range = get_viewport_rect().size.y
 	width = $CollisionShape2D.shape.size.y * global_scale.y
 	height = $CollisionShape2D.shape.size.y * global_scale.y
-	var shadmaterial: ShaderMaterial = material
 
 	if get_meta('side') == 'left':
 		global_position.x = padding
@@ -33,7 +32,8 @@ func _process(delta: float) -> void:
 	if global_position.y > y_range + height:
 		print('miss')
 		Globals.score -= 100
-		get_parent().remove_block(self) # get the blocks node2d in the main scene
+		global_position.y = -100000 # make it stop triggering this if statement
+		get_parent().remove_block(self, null) # get the blocks node2d in the main scene
 
 func centered_gpos():
 	return global_position + Vector2(width / 2, height / 2)

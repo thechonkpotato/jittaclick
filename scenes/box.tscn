@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cv468uw6awajy" path="res://assets/textures/block.svg" id="2_ks2v0"]
 [ext_resource type="Script" uid="uid://cnhifky85wtrf" path="res://scripts/box.gd" id="2_oq5cr"]
+[ext_resource type="AudioStream" uid="uid://b80ixsdq0yxa8" path="res://assets/sounds/lesiakower-error-mistake-sound-effect-incorrect-answer-437420.mp3" id="3_c2ln5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oq5cr"]
 size = Vector2(510.26318, 513.6316)
@@ -18,3 +19,10 @@ texture = ExtResource("2_ks2v0")
 visible = false
 position = Vector2(0.86841625, -0.81578785)
 shape = SubResource("RectangleShape2D_oq5cr")
+
+[node name="Sounds" type="Node2D" parent="." unique_id=2031856522]
+position = Vector2(0.86841625, -0.81578785)
+
+[node name="FailSound" type="AudioStreamPlayer2D" parent="Sounds" unique_id=247208203]
+position = Vector2(-0.86841625, 0.81578785)
+stream = ExtResource("3_c2ln5")

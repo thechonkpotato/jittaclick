@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d4j58dvnr1fow"]
+
+[ext_resource type="Script" uid="uid://dx2yp0csf5b5" path="res://scripts/score_effect.gd" id="1_b3gkw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b3gkw"]
+font_size = 32
+
+[node name="ScoreEffect" type="Node2D" unique_id=1169571048]
+script = ExtResource("1_b3gkw")
+
+[node name="Label" type="Label" parent="." unique_id=1171187155]
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 11.0
+label_settings = SubResource("LabelSettings_b3gkw")
+horizontal_alignment = 1
+vertical_alignment = 1

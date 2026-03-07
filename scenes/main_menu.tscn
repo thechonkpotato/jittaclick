@@ -25,6 +25,9 @@ font_size = 32
 [sub_resource type="LabelSettings" id="LabelSettings_vue75"]
 font_size = 48
 
+[sub_resource type="LabelSettings" id="LabelSettings_wu84c"]
+font_size = 32
+
 [node name="MainMenu" type="Control" unique_id=1630974062]
 layout_mode = 3
 anchors_preset = 15
@@ -119,6 +122,20 @@ The bar in the middle helps with your timing.
 Controls:
 Mouse buttons, arrow keys, shift buttons, and control buttons all can be used for input. Use the side for the left blocks, and the right side for the right!"
 fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScoreLabel" type="Label" parent="." unique_id=957090429]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -167.0
+offset_right = 167.0
+offset_bottom = 63.0
+grow_horizontal = 2
+text = "HIGH SCORE: 0"
+label_settings = SubResource("LabelSettings_wu84c")
 horizontal_alignment = 1
 vertical_alignment = 1
 

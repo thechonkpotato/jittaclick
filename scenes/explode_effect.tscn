@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d2uldenv66v81"]
+
+[ext_resource type="Script" uid="uid://clb23cos4po6l" path="res://scripts/explode_effect.gd" id="1_mkjri"]
+[ext_resource type="Texture2D" uid="uid://dkix0qqgivtop" path="res://assets/textures/circ.png" id="2_1yemm"]
+
+[node name="ExplodeEffect" type="Node2D" unique_id=1806865684]
+script = ExtResource("1_mkjri")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=340491782]
+texture = ExtResource("2_1yemm")

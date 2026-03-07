@@ -7,6 +7,7 @@ var bpm: float = 100
 
 func _ready():
 	Globals.line_y = $Line2D.points[0].y
+	Globals.score = 0
 	cam.position.x = cam.get_viewport_rect().size.x / 2
 	cam.position.y = cam.get_viewport_rect().size.y / 2
 
@@ -34,9 +35,9 @@ func test_for_blocks(input_side: String): # <-- WOW LOOK AT THIS FUNCTION THAT M
 		var block = datapiece.block
 		var side = datapiece.side
 		if side == input_side and (block.position.y + block.height) >= Globals.line_y:
-			bmanage.remove_block(block)
-			Globals.score += clamp(round(100 / abs(Globals.line_y - block.position.y)), 0, 200) # the closer to the line it is, the higher the value. can't go over 100.
-			$Sound/GoodHit.play()
+			var accuracy = clamp(round(100 / abs(Globals.line_y - block.position.y)), 0, 200) # the closer to the line it is, the higher the value. can't go over 100.
+			bmanage.remove_block(block, accuracy)
+			Globals.score += accuracy
 
 func pulse_camera():
 	var tween = create_tween()
