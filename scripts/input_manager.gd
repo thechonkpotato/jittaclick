@@ -44,7 +44,7 @@ func pulse_camera():
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 
-	$Camera2D.zoom = Vector2(0.98, 0.98)
+	$Camera2D.zoom = Vector2(0.97, 0.97)
 	tween.tween_property($Camera2D, 'zoom', Vector2(1.0, 1.0), 0.1)
 
 func pulse_score():
